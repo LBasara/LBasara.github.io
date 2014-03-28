@@ -1,0 +1,19 @@
+
+.overview {
+	color:black;
+	background-color:white;
+	background-image:url(./Test_files/Background.jpg);
+}
+
+
+p {
+	color:#111111;
+}
+
+.slide {
+	background-color:#EEE;
+}
+
+strong {
+	color: red;
+}
