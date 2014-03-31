@@ -8,9 +8,9 @@
 
     <title>impress.js | presentation tool based on the power of CSS3 transforms and transitions in modern browsers | by Bartek Szopka @bartaz</title>
     
+    <link href="css/style.css" rel="stylesheet" type="text/css">
 
-
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+    <!--link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" /-->
 
 
 </head>
@@ -27,30 +27,21 @@
     </div>
 
 
-	<div id="graph" class="step" data-x="0" data-y="0" >
-		<p>
-		
+	
+	<div id="temp" class="step" data-x="1000" data-y="0" >
+	<p>
 	</p>
 	</div>
 
-<style>
-path {
-stroke: steelblue;
-stroke-width: 2;
-fill: none;
-}
+	<div id="graph" class="step" data-x="1000" data-y="0" >
 
-.axis path,
-.axis line {
-fill: none;
-stroke: grey;
-stroke-width: 1;
-shape-rendering: crispEdges;
-}
-</style>
+	</div>	
+	
+
 
 <script src="d3/d3.js"></script>
-<script src="d3/ratio.js"></script>
+<!--script src="d3/ratio.js"><--/script-->
+<script src="d3/temp.js"></script>
 
 
 </div>
