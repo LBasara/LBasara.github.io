@@ -26,8 +26,13 @@
 			.y(function(d) { return y(d.DS0); });
 			
 			
-						
+		function datefin(dat, lim) {
+			return dat.filter(function(d) { return d.Date < lim; });
+		}
 
+			
+			
+	
 			
 
 		var svg = d3.select("#temp").append("svg")
@@ -47,19 +52,23 @@
 
 		  //x.domain(d3.extent(data, function(d) { return d.Date; }));
 		  //y.domain(d3.extent(data, function(d) { return d.DS0; }));
-		  datelim=parseDate("2011-06-30 00:00:00")
+		  
+		  
+		  
+		  
+		  datelim=parseDate("2011-06-30 00:00:00");
+		  
+		  var data2 = datefin(data, datelim );
+		  
 			y.domain(d3.extent(
-				data.filter(function(d) { return d.Date < datelim; }), 
+				data2, 
 				function(d) { return d.DS0; }));
 			x.domain( 
-				[	d3.min(data, function(d) { return d.Date; }),
-					datelim
-				]
+				d3.extent(data2, function(d) { return d.Date; })
 			);
 
 
 		  svg.append("path")
-			  //.datum(data.filter(function(d) { return d.DS0 < 0; }))
 			  .datum(data)
 			  .attr("class", "line")
 			  .attr("d", line);
@@ -83,8 +92,39 @@
 			  .attr("dy", ".71em")
 			  .style("text-anchor", "end")
 			  .text("Positronic ratio");
-
 			  
+	
+			d3.selectAll("#trigger")
+				.on("click", function() {
+					datelim=parseDate("2012-06-30 00:00:00");
+		  		data2 = datefin(data, datelim );
+		  		x.domain( d3.extent(data2, function(d) { return d.Date; }) );
+		  		
+		  		
+		  		svg.select("path")
+						.datum(data)
+						.attr("class", "line")
+						.attr("d", line);
+		  		
+		  		
+					 svg.selectAll(".x.axis")
+						.call(xAxis)
+					.append("text")
+						.style("text-anchor", "end")
+						.attr("transform", "translate(" + width + ", 0)")
+						.attr("dy", "2.5em")
+						.text("Energy (GeV)");		
+						
+
+						
+					
+									
+			});
+	
+ 
 			  
 		});
+		
+				  
+
 

@@ -81,6 +81,8 @@ body {
 
 .impress-enabled .step.active { opacity: 1 }
 
+
+
 /*
     These 'slide' step styles were heavily inspired by HTML5 Slides:
     http://html5slides.googlecode.com/svn/trunk/styles.css
@@ -130,4 +132,8 @@ shape-rendering: crispEdges;
 .axis text {
 font-family: 'PT Serif', georgia, serif;
 font-size: 20px;
+}
+
+#graph {
+opacity: 0;
 }
