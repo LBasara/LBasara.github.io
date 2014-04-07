@@ -11,12 +11,12 @@
 		var xAxis = d3.svg.axis()
 			.scale(x)
 			.orient("bottom")
-			.ticks(5);
+			.ticks(7);
 
 		var yAxis = d3.svg.axis()
 			.scale(y)
 			.orient("left")
-			.ticks(5);
+			.ticks(10);
 			
 
 
@@ -35,14 +35,14 @@
 	
 			
 
-		var svg = d3.select("#temp").append("svg")
+		var svg = d3.selectAll(".temp").append("svg")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom)
 		  .append("g")
 			.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 
-		d3.tsv("js/DS0.tsv", function(error, data) {
+		d3.tsv("js/DS0b.tsv", function(error, data) {
 		  data.forEach(function(d) {
 			//console.log(d.Date+" "+d.DS0+" "+d.Run);
 			d.Date = parseDate(d.Date);
@@ -56,7 +56,7 @@
 		  
 		  
 		  
-		  datelim=parseDate("2011-06-30 00:00:00");
+		  datelim=parseDate("2011-05-22 01:00:00");
 		  
 		  var data2 = datefin(data, datelim );
 		  
@@ -93,35 +93,49 @@
 			  .style("text-anchor", "end")
 			  .text("Positronic ratio");
 			  
-	
-			d3.selectAll("#trigger")
+			
+			var test=0;
+			
+			d3.select("#temp1")
 				.on("click", function() {
-					datelim=parseDate("2012-06-30 00:00:00");
-		  		data2 = datefin(data, datelim );
-		  		x.domain( d3.extent(data2, function(d) { return d.Date; }) );
-		  		
-		  		
-		  		svg.select("path")
-						.datum(data)
-						.attr("class", "line")
-						.attr("d", line);
-		  		
+					console.log(test);
+					if (test==0)	datelim=parseDate("2011-09-17 00:00:00");
+					if (test==1)  datelim=parseDate("2013-09-17 00:00:00");
+					test++;
+					
+					
+					
+					
+		  		data3 = datefin(data, datelim );
+		  		x.domain( d3.extent(data3, function(d) { return d.Date; }) );
+		  		y.domain(d3.extent(data3,  function(d) { return d.DS0; }));
+
 		  		
 					 svg.selectAll(".x.axis")
-						.call(xAxis)
-					.append("text")
-						.style("text-anchor", "end")
-						.attr("transform", "translate(" + width + ", 0)")
-						.attr("dy", "2.5em")
-						.text("Energy (GeV)");		
-						
+						.transition()
+						.duration(1000)
+						.call(xAxis);
 
-						
+						svg.selectAll(".y.axis")
+						.transition()
+						.duration(1000)
+						.call(yAxis);
+
+						svg.select("path")
+						.datum(data)
+						.transition()
+						.duration(1000)
+									  .attr("class", "line")
+			  .attr("d", line);
+						;
+					
+
 					
 									
 			});
 	
- 
+
+
 			  
 		});
 		
