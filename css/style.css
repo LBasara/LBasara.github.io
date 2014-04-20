@@ -48,7 +48,8 @@ body {
 
 .step {
     position: relative;
-    width: 900px;
+    width: 1024px;
+    height: 768px;
     padding: 40px;
     margin: 20px auto;
 
@@ -115,7 +116,7 @@ body {
 #overview { display: none }
 
 
-path {
+.cgraph path {
 stroke: steelblue;
 stroke-width: 3;
 fill: none;
@@ -125,15 +126,63 @@ fill: none;
 .axis line {
 fill: none;
 stroke: grey;
-stroke-width: 1;
+stroke-width: 3;
 shape-rendering: crispEdges;
 }
 
 .axis text {
 font-family: 'PT Serif', georgia, serif;
-font-size: 20px;
+font-size: 10;
 }
 
 #graph {
 opacity: 0;
 }
+
+
+
+.substep {
+  opacity: 0;
+  -webkit-transition: all 1s;
+  -moz-transition:    all 1s;
+  -ms-transition:     all 1s;
+  -o-transition:      all 1s;
+  transition:         all 1s;  
+}
+
+.substep {
+  opacity: 0;
+}
+
+/* override for animated substeps */
+.substep.anim {
+  opacity: 1;
+}
+
+.substep.active {
+  opacity: 1;
+}
+
+
+svg .substep.previous {
+  opacity: 1; 
+}
+
+.substep.previous {
+  opacity: 0.75;
+}
+
+.impress-enabled .substep.active {
+  opacity: 1;
+}
+
+
+
+svg {text-shadow: none}
+svg g.downit {-webkit-transform: translateY(0px); -webkit-transition: -webkit-transform 1s}
+svg g.down {-webkit-transform: translateY(180px); -webkit-transition: -webkit-transform 1s}
+svg g {-webkit-transition: -webkit-transform 1s}
+
+svg g.echelle {-webkit-transform: scale(1, 0.01); -webkit-transition: -webkit-transform 0.3s}
+svg g.desech {-webkit-transform: scale(1, 1); -webkit-transition: -webkit-transform 0.3s}
+

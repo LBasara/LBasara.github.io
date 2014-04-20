@@ -1,7 +1,7 @@
 
-		var margin = {top: 20, right: 20, bottom: 60, left: 50},
-			width = 960 - margin.left - margin.right,
-			height = 500 - margin.top - margin.bottom;
+		var margin = {top: 50, right: 50, bottom: 120, left: 150},
+			width = 1024 - margin.left - margin.right,
+			height = 768 - margin.top - margin.bottom;
 
 		var parseDate = d3.time.format("%Y-%m-%d %H:%M:%S").parse;
 		var x = d3.time.scale().range([0, width]);
@@ -11,12 +11,12 @@
 		var xAxis = d3.svg.axis()
 			.scale(x)
 			.orient("bottom")
-			.ticks(7);
+			.ticks(4);
 
 		var yAxis = d3.svg.axis()
 			.scale(y)
 			.orient("left")
-			.ticks(10);
+			.ticks(7);
 			
 
 
@@ -36,6 +36,7 @@
 			
 
 		var svg = d3.selectAll(".temp").append("svg")
+			.attr("class", "cgraph")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom)
 		  .append("g")
@@ -80,7 +81,7 @@
 			.append("text")
 			  .style("text-anchor", "end")
 			  .attr("transform", "translate(" + width + ", 0)")
-			  .attr("dy", "2.5em")
+			  .attr("dy", "2em")
 			  .text("Energy (GeV)");			  
 
 		  svg.append("g")
@@ -89,9 +90,9 @@
 			.append("text")
 			  .attr("transform", "rotate(-90)")
 			  .attr("y", -40)
-			  .attr("dy", ".71em")
+			  .attr("dy", "-1em")
 			  .style("text-anchor", "end")
-			  .text("Positronic ratio");
+			  .text("Temperature (deg C)");
 			  
 			
 			var test=0;

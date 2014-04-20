@@ -1,0 +1,102 @@
+<!doctype html>
+
+
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+
+    <title>L. Basara - Performance of the electromagnetic calorimeter of the AMS-02 experiment on the International Space Station and measurement of the positron fraction in the 1.5 - 350 GeV energy range</title>
+    
+    <!--link href="css/style.css" rel="stylesheet" type="text/css"-->
+     
+
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+    
+    <script src="../../js/jquery.1.7.1.min.js"></script>
+    <script src="../../js/img-svg.js"></script>
+   
+
+
+
+    <!--link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" /-->
+
+
+</head>
+
+
+<body class="impress-not-supported">
+
+
+<div id="impress">
+
+
+   <div id="bgi" class= "step slide" data-x="0" data-y="0" data-z="100"  data-scale="30"
+			style="background-image:url(./Background.jpg); background-size: cover;color: #FFF";>
+			<h1 style="width:800px;align:center;float:left;background-color:rgba(0,0,0,0.8)">
+					Performance of the electromagnetic calorimeter of the AMS-02 experiment on the International Space Station and measurement of the positron fraction in the 1.5 - 350 GeV energy range
+				</h1>
+			
+			<div style="position:absolute;left:400px;top:200px;background-color:rgba(0,0,0,0.8); moz-transform:translateZ(60px);">1. The AMS-02 experiment</div>
+			
+			<div style="position:absolute;left:10px;top:350px;background-color:rgba(0,0,0,0.8); moz-transform:translateZ(60px);">2. Electron/proton <br /> discrimination</div>
+			
+			<div style="position:absolute;left:600px;top:500px;background-color:rgba(0,0,0,0.8); moz-transform:translateZ(60px);">3. Positronic ratio</div>
+			
+    </div>
+
+
+
+
+
+
+
+
+    <div id="detector" class="step" data-x="500" data-y="-100" data-z="400"> 
+			<img src="AMS02.svg" class="svg">
+			<script>
+	document.addEventListener("impress:substepactive", function(e) {
+		if (e.srcElement.classList.contains("echelle")) {
+		    e.srcElement.classList.add("desech");
+		    e.srcElement.classList.remove("echelle");
+		} else
+		if (e.srcElement.classList.contains("desech")) {
+		    e.srcElement.classList.add("echelle");
+		    e.srcElement.classList.remove("desech");
+		}
+	});
+</script>
+    </div>
+
+
+	
+	<div id="temp1" class="step temp" data-x="1000" data-y="0" data-z="1000">
+
+	</div>
+
+
+	
+
+
+<script src="d3/d3.js"></script>
+<script src="d3/temp.js"></script>
+<!--script src="d3/ratio.js"><--/script-->
+
+
+
+</div>
+
+
+<script src="js/impress.js"></script>
+<script src="js/main.js"></script></div></div>
+
+
+
+<script>impress().init();</script>
+
+
+
+</body>
+</html>
+
+

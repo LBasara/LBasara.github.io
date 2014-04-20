@@ -163,23 +163,99 @@
         
         return scale;
     };
+
+    // Simple helper to list any substeps within an element
+    var getSubsteps = function (element) {
+        return $$(".substep", element);
+    };    
+
+    var getPresentSubstep = function (element) {
+        return $(".present", element);
+    };
+
+    // Returns the first substep element marked as future
+    // or false if there are no future substeps
+    var getNextSubstep = function(element) {
+        var result = false;
+        var substeps = getSubsteps(element);
+        if (substeps.length > 0) {
+            var futureSubsteps = $$(".future", element);
+            if (futureSubsteps.length > 0) {
+                result = futureSubsteps[0];
+            }
+        }
+        return result;
+    }
+
+    // Returns the last substep element marked as past
+    // or false if there are no past substeps
+    var getPreviousSubstep = function(element) {
+        var result = false;
+        var substeps = getSubsteps(element);
+        if (substeps.length > 0) {
+            var pastSubsteps = $$(".past", element);
+            if (pastSubsteps.length > 0) {
+                result = pastSubsteps[pastSubsteps.length - 1];
+            }
+        }
+        return result;
+    }
+
+    // helper for navigation forward a substep
+    var substepForward = function (element) {
+        if (getPresentSubstep(element)) {
+            var presentSubstep = getPresentSubstep(element);
+            presentSubstep.classList.remove("present");
+            presentSubstep.classList.add("past");
+            triggerEvent(presentSubstep, "impress:substep-exit");
+        }
+        var nextSubstep = getNextSubstep(element);
+        nextSubstep.classList.remove("future");
+        nextSubstep.classList.add("present");
+        nextSubstep.classList.add("active");
+        // trigger events
+        triggerEvent(nextSubstep, "impress:substep-active");
+        triggerEvent(nextSubstep, "impress:substep-enter");
+    }
+
+
+
+    // helper for navigation back a substep
+    var substepBackward = function (element) {
+        var presentSubstep = getPresentSubstep(element);
+        presentSubstep.classList.remove("present");
+        presentSubstep.classList.add("future");
+        presentSubstep.classList.remove("active");
+
+         // trigger events
+        triggerEvent(presentSubstep, "impress:substep-inactive");
+        triggerEvent(presentSubstep, "impress:substep-exit");
+
+        if (getPreviousSubstep(element)) {
+            var previousSubstep = getPreviousSubstep(element);
+            previousSubstep.classList.remove("past");
+            previousSubstep.classList.add("present");
+            triggerEvent(previousSubstep, "impress:substep-enter");   
+        }
+    };
+
     
     // CHECK SUPPORT
     var body = document.body;
     
     var ua = navigator.userAgent.toLowerCase();
-    var impressSupported = true;
+    var impressSupported = 
                           // browser should support CSS 3D transtorms 
-                           //( pfx("perspective") !== null ) &&
+                           ( pfx("perspective") !== null ) &&
                            
                           // and `classList` and `dataset` APIs
-                           //( body.classList ) &&
-                           //( body.dataset );// &&
+                           ( body.classList ) &&
+                           ( body.dataset ) &&
                            
                           // but some mobile devices need to be blacklisted,
                           // because their CSS 3D support or hardware is not
                           // good enough to run impress.js properly, sorry...
-    //                       ( ua.search(/(iphone)|(ipod)|(android)/) === -1 );
+                           ( ua.search(/(iphone)|(ipod)|(android)/) === -1 );
     
     if (!impressSupported) {
         // we can't be sure that `classList` is supported
@@ -293,19 +369,6 @@
             }
         };
         
-        
-        //var lastSubActivated = null;
-        
-        // `onSubStepActive` is called whenever the step element is left
-        // but the event is triggered only if the step is the same as
-        // last entered step.
-        var onSubStepActive = function (step) {
-            //if (lastSubActivated === step) {
-                triggerEvent(step, "impress:substepactive");
-            //    lastSubActivated = null;
-            //}
-        };
-        
         // `initStep` initializes given step element by reading data from its
         // data attributes and setting correct styles.
         var initStep = function ( el, idx ) {
@@ -339,12 +402,16 @@
                            scale(step.scale),
                 transformStyle: "preserve-3d"
             });
-        };
-        
-        var newStep = function ( el ) {
-            initStep(el);
-            steps.push(el);
+
+            // need to prepare substeps with 'future'
+            if (getSubsteps(el).length > 0) {
+                getSubsteps(el).forEach(
+                    function(substep){
+                        substep.classList.add("future");
+                    }
+                );
             }
+        };
         
         // `init` API function that initializes (and runs) the presentation.
         var init = function () {
@@ -436,11 +503,6 @@
         // used to reset timeout for `impress:stepenter` event
         var stepEnterTimeout = null;
         
-        var transformationCallback = null;
-        var setTransformationCallback = function(callback){
-          transformationCallback=callback;
-        }
-        
         // `goto` API function that moves to step given with `el` parameter (by index, id or element),
         // with a transition `duration` optionally given as second parameter.
         var goto = function ( el, duration ) {
@@ -484,14 +546,6 @@
                 },
                 scale: 1 / step.scale
             };
-            
-            if(transformationCallback) { 
-                transformationCallback({
-                  scale:step.scale,
-                  rotate:step.rotate,
-                  translate:step.translate
-                });
-            }
             
             // Check if the transition is zooming in or not.
             //
@@ -580,161 +634,37 @@
         };
         
         // `prev` API function goes to previous step (in document order)
-        var _prev = function () {
-            var prev = steps.indexOf( activeStep ) - 1;
-            prev = prev >= 0 ? steps[ prev ] : steps[ steps.length-1 ];
-            
-            return goto(prev);
+        // or backs up one stubstep if a present substep is found
+        var prev = function () {
+
+            if (getPresentSubstep(activeStep)) {
+                // if this step has a substep in present state
+                // substepBackward. This is not exposed in API
+                // because substeps cannot be deep linked
+                substepBackward(activeStep);
+            } else  {
+                // when no present substep goto previous step
+                var prev = steps.indexOf( activeStep ) - 1;
+                prev = prev >= 0 ? steps[ prev ] : steps[ steps.length-1 ];
+                return goto(prev);
+            }
         };
         
         // `next` API function goes to next step (in document order)
-        var _next = function () {
-            var next = steps.indexOf( activeStep ) + 1;
-            next = next < steps.length ? steps[ next ] : steps[ 0 ];
-            
-            return goto(next);
+        var next = function () {
+            if (getNextSubstep(activeStep)) {
+                // if a future substep is found in this step
+                // substepForward.  This is not exposed in API 
+                // because substeps cannot be deep linked
+                substepForward(activeStep);
+            } else {
+                // when no future substeps are available goto next step
+                var next = steps.indexOf( activeStep ) + 1;
+                next = next < steps.length ? steps[ next ] : steps[ 0 ];
+                return goto(next);
+            }
         };
-        
-        
- //PATCH for SUBSTEPS
- 	var forEach = Array.prototype.forEach,
-        slice = Array.prototype.slice,
-        isArray = Array.isArray;
-        
-    var removeClass = function (elm, className) {
-    if (elm.classList) {
-            elm.classList.remove(className);
-    } else {
-            if (!elm || !elm.className) {
-                return false;
-            }
-            var regexp = new RegExp("(^|\\s)" + className + "(\\s|$)", "g");
-            elm.className = elm.className.replace(regexp, "$2");
-    }
-	}
-    
- 
-    var setPrevious = function (data) {
-        if (isArray(data)) {
-            data.forEach(setPrevious);
-            return;
-        }
-        //removeClass(data,'active');
-        //data.className = data.className + ' previous';
-        data.classList.remove('active');
-        data.classList.add('previous');
-    };
 
-    var setActive = function (data) {
-        if (isArray(data)) {
-            data.forEach(setActive);
-            return;
-        }
-        //removeClass(data,'previous');
-        //data.className = data.className + ' active';
-        data.classList.remove('previous');
-        data.classList.add('active');
-        onSubStepActive(data);
-    };
-
-    var clearSub = function (data) {
-        if (isArray(data)) {
-            data.forEach(clearSub);
-            return;
-        }
-        //removeClass(data,'previous');
-        //removeClass(data,'active');
-        data.classList.remove('active');
-        data.classList.remove('previous');
-    };
- 
- 	var next = function () {
- 		var active = activeStep;
- 		
-        var subactive, next, subSteps;
-        
-        if (!active.subSteps) {
-            setSubSteps(active);
-        }
-        subSteps = active.subSteps;
-        if (subSteps.length && ((subactive = subSteps.active) !== (subSteps.length - 1))) {
-            if (subactive != null) {
-                setPrevious(subSteps[subactive]);
-            } else {
-                subactive = -1;
-            }
-            setActive(subSteps[++subactive]);
-            subSteps.active = subactive;
-            return;
-        }
-        next = steps.indexOf( active ) + 1;
-        next = next < steps.length ? steps[ next ] : steps[ 0 ];
-        if (!next.subSteps) {
-            setSubSteps(next);
-        }
-        if (next.subSteps.active != null) {
-            forEach.call(next.subSteps, clearSub);
-            next.subSteps.active = null;
-        }
-        return goto(next);
-    };
- 
- 	var prev = function () {
- 		var active = activeStep;
- 		
-        var subactive, next, subSteps;
-        if (!active.subSteps) {
-            setSubSteps(active);
-        }
-        subSteps = active.subSteps;
-        if (subSteps.length && ((subactive = subSteps.active) || (subactive === 0))) {
-            clearSub(subSteps[subactive]);
-            if (subactive) {
-                setActive(subSteps[--subactive]);
-                subSteps.active = subactive;
-            } else {
-                subSteps.active = null;
-            }
-            return;
-        }
-        next = steps.indexOf( active ) - 1;
-        next = next >= 0 ? steps[ next ] : steps[ steps.length-1 ];
-        if (!next.subSteps) {
-            setSubSteps(next);
-        }
-        if (next.subSteps.length &&
-            (next.subSteps.active !== (next.subSteps.length - 1))) {
-            slice.call(next.subSteps, 0, -1).forEach(setPrevious);
-            setActive(next.subSteps[next.subSteps.length - 1]);
-            next.subSteps.active = next.subSteps.length - 1;
-        }
-        return goto(next);
-    };
- 
-	 var setSubSteps = function (el) {
-        var steps = el.querySelectorAll(".substep"),
-        order = [], unordered = [];
-        forEach.call(steps, function (el) {
-        	if (el.dataset) {
-            var index = Number(el.dataset.order);
-            if (!isNaN(index)) {
-                if (!order[index]) {
-                    order[index] = el;
-                } else if (Array.isArray(order[index])) {
-                    order[index].push(el);
-                } else {
-                    order[index] = [order[index], el];
-                }
-            } else {
-                unordered.push(el);
-            } } else {
-            	unordered.push(el);
-            }
-        });
-        el.subSteps = order.filter(Boolean).concat(unordered);
-    };
- 
- //END PATCH       
         
         // Adding some useful classes to step elements.
         //
@@ -807,11 +737,7 @@
             init: init,
             goto: goto,
             next: next,
-            prev: prev,
-            initStep: initStep,
-            newStep:newStep,
-            setTransformationCallback:setTransformationCallback
-
+            prev: prev
         });
 
     };
