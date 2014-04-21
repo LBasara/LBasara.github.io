@@ -1,0 +1,127 @@
+
+#why.future {opacity:0.5}
+#why2.future {opacity:0.5}
+body.impress-on-why #why3 {opacity:0}
+body.impress-on-why2 #why3 {opacity:0}
+body.impress-on-tcc-http-protocol2 #tcc-http-protocol {opacity:1}
+body.impress-on-tcc2 #tcc {opacity:1}
+body.impress-on-title2 #title {opacity: 0}
+
+#why.past {opacity:1}
+#why2.past {opacity:1}
+#why3.past {opacity:1}
+#why2.previous {opacity:1}
+#ctx.past, #problem.past, #constraints.past, #tcc-http-protocol-fail.past, #comp-wf.past, #tcc-http-protocol-fail.past {opacity:1}
+
+#title2.future, #problem2.future, #tcc-try.future, #tcc-timeout.future, #tcc-timeout2.future, #tcc-confirm.future, #tcc-cancel.future, #timing.past, #timing2.future, #tcc-http-protocol-fail-cancel.future, #tcc-http-protocol-fail-cancel.past, #deploy2.future, #deploy.past, #deploy-wb.future, #deploy-wb.past, #deploy-taas.future {opacity:0}
+
+#deploy2.past h2 {opacity:0}
+
+svg {text-shadow: none}
+svg g.downit {-webkit-transform: translateY(0px); -webkit-transition: -webkit-transform 1s}
+svg g.down {-webkit-transform: translateY(180px); -webkit-transition: -webkit-transform 1s}
+svg g {-webkit-transition: -webkit-transform 1s}
+
+#g8106 {z-index: 1}
+
+.color-red code {
+  background: rgba(255, 0, 0,0.8);
+}
+
+#comp-wf-tcc-obs ul li li {margin:0}
+
+/*
+
+
+body.impress-on-style {background-image: url("../img/style-gothic.png"); background-size: cover}
+body.impress-on-style2 {background-image: url("../img/style-bologna.png"); background-size: cover}
+body.impress-on-style3 {background-image: url("../img/style-bjopera.png"); background-size: cover}
+body.impress-on-style4 {background-image: url("../img/style-bjopera.png"); background-size: cover}
+
+body.impress-on-lqs {background-image: url("../img/wave.png"); background-size: cover}
+body.impress-on-lqs h3#lqs {color:white; text-shadow: -2px -2px 4px black, 2px 2px 4px black}
+body.impress-on-lqs h2 {opacity:0}
+body.impress-on-lqf h2 {opacity:0}
+body.impress-on-lqf {background-image: url("../img/arduino.png"); background-size: cover}
+body.impress-on-lqf h3#lqf {color:white; text-shadow: -2px -2px 4px black, 2px 2px 4px black}
+body.impress-on-lqs h2 {opacity:0}
+body.impress-on-lqaf {background-image: url("../img/phones.png"); background-size: cover}
+body.impress-on-lqaf h3#lqf {color:white; text-shadow: -2px -2px 4px black, 2px 2px 4px black}
+body.impress-on-lqaf h3#lqa {color:white; text-shadow: -2px -2px 4px black, 2px 2px 4px black}
+body.impress-on-lqaf h2 {opacity:0}
+
+body.impress-on-lqsaf {background-image: url("../img/multicore.png"); background-size: cover}
+body.impress-on-lqsaf h3#lqf {color:white; text-shadow: -2px -2px 4px black, 2px 2px 4px black}
+body.impress-on-lqsaf h3#lqa {color:white; text-shadow: -2px -2px 4px black, 2px 2px 4px black}
+body.impress-on-lqsaf h3#lqs {color:white; text-shadow: -2px -2px 4px black, 2px 2px 4px black}
+
+body.impress-on-lqsaf h2 {opacity:0}
+body.impress-on-lqsafe {background-image: url("../img/bluegene.png"); background-size: cover}
+
+body.impress-on-lqsafe h3 {color:white; text-shadow: -2px -2px 4px black, 2px 2px 4px black}
+body.impress-on-lqsafe h2 {opacity:0}
+body.impress-on-lqsafe2 {background-image: url("../img/cloud.png"); background-size: cover}
+
+body.impress-on-lqsafe2 h3 {color:white; text-shadow: -2px -2px 4px black, 2px 2px 4px rgba(0, 67, 148,0.5)}
+body.impress-on-lqsafe2 h2 {opacity:0}
+
+body.impress-on-cons-fd {background-image: url("../img/windowdrops.png"); background-size: cover}
+body.impress-on-cons-fd h3#cfd {color:white; text-shadow: -2px -2px 4px black, 2px 2px 4px black}
+body.impress-on-cons-fd h2 {opacity:0}
+body.impress-on-cons-ga {background-image: url("../img/messagebottle.png"); background-size: cover}
+body.impress-on-cons-ga h3#cga {color:white; text-shadow: -2px -2px 4px black, 2px 2px 4px black}
+body.impress-on-cons-ga h2 {opacity:0}
+body.impress-on-cons-uc {background-image: url("../img/wires.png"); background-size: cover}
+body.impress-on-cons-uc h3#cuc {color:white; text-shadow: -2px -2px 4px black, 2px 2px 4px black}
+body.impress-on-cons-uc h2 {opacity:0}
+body.impress-on-cons-ui {background-image: url("../img/sandybeach.png"); background-size: cover}
+body.impress-on-cons-ui h3#cui {color:white; text-shadow: -2px -2px 4px black, 2px 2px 4px black}
+body.impress-on-cons-ui h2 {opacity:0}
+
+body.impress-on-sl-runtime-test {background-image: url("../img/multicore.png"); background-size: cover}
+body.impress-on-sl-runtime-elastic {background-image: url("../img/multicore.png"); background-size: cover}
+body.impress-on-sl-runtime-migration {background-image: url("../img/cloud.png"); background-size: cover}
+body.impress-on-liquid {background-image: url("../img/drop.png"); background-size: cover}
+body.impress-on-liquid-ws {background-image: url("../img/drop.png"); background-size: cover}
+
+body.impress-on-liquid #liquid img {opacity:0}
+body.impress-on-liquid #liquid p {opacity:0}
+
+body.impress-on-sl-runtime2 #sl-runtime svg #g4610 {opacity:0}
+
+#cons h3 {font-size:1.3em}
+
+#style2.future {opacity:0}
+#style2.past {opacity:0}
+#style3.future {opacity:0}
+#lq.future {opacity:0}
+#lq.past {opacity:1}
+#lq-def.future {opacity:0}
+#cons.future {opacity:0}
+#cons.past {opacity:1}
+#cons-def.future {opacity:0}
+#sl-ex2.past {opacity:1}
+#sl-runtime2.future {opacity:0}
+
+body.impress-on-style4 #cons.future {opacity:0.6}
+body.impress-on-cons #cons.future {opacity:0.6}
+
+.imageslide {color:white; text-shadow: -2px -2px 4px black, 2px 2px 4px black}
+
+div.step.active p.boxed {background-color: rgba(0,0,0,0.8); }
+p.boxed {background-color: rgba(0,0,0,0.2); padding: 10px; text-align: justify}
+
+.reflectBelow  { 
+  -webkit-box-reflect: below 0
+    -webkit-gradient(linear, left top, left bottom, from(transparent), color-stop(0.8, transparent), to(white)); 
+}
+
+#lq-def p {margin-bottom:2em}
+#cons-def p {margin-bottom:2.5em}
+
+pre code.s .method {color: #d7eef4}
+pre code.s .service {color: #e6e6e6}
+pre code.s .resource {color: #ffffff}
+pre code.s .state {color: #DAD085}
+
+*/

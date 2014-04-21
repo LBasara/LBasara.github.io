@@ -1,4 +1,8 @@
 
+	function temperature() {
+
+	console.log("in");
+
 		var margin = {top: 50, right: 50, bottom: 120, left: 150},
 			width = 1024 - margin.left - margin.right,
 			height = 768 - margin.top - margin.bottom;
@@ -142,4 +146,4 @@
 		
 				  
 
-
+};
