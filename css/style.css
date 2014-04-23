@@ -69,19 +69,49 @@ body {
 
     Basically we remove the margin and make inactive steps a little bit transparent.
 */
-.impress-enabled .step {
-    margin: 0;
-    opacity: 0.3;
+.step {
 
-    -webkit-transition: opacity 1s;
-    -moz-transition:    opacity 1s;
-    -ms-transition:     opacity 1s;
-    -o-transition:      opacity 1s;
-    transition:         opacity 1s;
+    position: relative;
+    width: 1024px;
+    height: 768px;
+    padding: 40px;
+    margin: 20px auto;
+    
+    text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
+    font-family: 'Open Sans', Arial, sans-serif;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -1px;
 }
 
-.impress-enabled .step.active { opacity: 1 }
 
+.part {
+	position:absolute;
+	background-color:rgba(0,0,0,0.8);
+	-webkit-transform:translateZ(1000px);
+	-moz-transform:	translateZ(1000px);   
+	-ms-transform:		translateZ(1000px);    
+	-o-transform:		translateZ(1000px);     
+}
+
+.step.past {
+	opacity: 0.5;
+    -webkit-transition: opacity 0.3s;
+    -moz-transition:    opacity 0.3s;
+    -ms-transition:     opacity 0.3s;
+    -o-transition:      opacity 0.3s;
+    transition:         opacity 0.3s;
+}
+
+.step.active { opacity: 1;
+    -webkit-transition: opacity 0.2s;
+    -moz-transition:    opacity 0.2s;
+    -ms-transition:     opacity 0.2s;
+    -o-transition:      opacity 0.2s;
+    transition:         opacity 0.2s;
+ }
+ 
+.step.future { opacity: 0.1;}
 
 
 /*
@@ -92,20 +122,6 @@ body {
 
     They cover everything what you see on first three steps of the demo.
 */
-
-.step{
-    display: block;
-
-    width: 1024px;
-    height: 768px;
-    padding: 40px 60px;
-
-    text-shadow: 0 2px 2px rgba(0, 0, 0, .1);
-    font-family: 'Open Sans', Arial, sans-serif;
-    font-size: 30px;
-    line-height: 36px;
-    letter-spacing: -1px;
-}
 
 
 
@@ -120,7 +136,12 @@ body {
 }
 
 
-
+#ov1 {
+	background-image:url(./Background.jpg);
+	background-size: cover;
+	color: #FFF;
+	opacity: 1;
+	}
 
 
 
