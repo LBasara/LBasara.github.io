@@ -42,6 +42,50 @@
        y="233.04889"
        id="rect4739-4"
        style="fill:#0000ff;fill-rule:evenodd;stroke:#000000;stroke-width:0px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+   <text
+     x="240.27504"
+     y="20.114098"
+     transform="scale(0.98843802,1.0116972)"
+     id="text3593"
+     xml:space="preserve"
+     style="font-size:25.47067451px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#FF0000;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+       x="240.27504"
+       y="20.114098"
+       id="tspan3595">p</tspan></text>
+  <text
+     x="306.1398"
+     y="24.062841"
+     transform="scale(0.98843804,1.0116972)"
+     id="text3593-1"
+     xml:space="preserve"
+     style="font-size:25px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#00FF00;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+       x="306.1398"
+       y="24.062841"
+       dy="0 -10.109997"
+       id="tspan3595-2">e+</tspan></text>
+  <text
+     x="184.83244"
+     y="25.878048"
+     transform="scale(0.98843804,1.0116972)"
+     id="text3593-1-7"
+     xml:space="preserve"
+     style="font-size:25px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#0000FF;fill-opacity:1;stroke:none;font-family:Sans"><tspan
+       x="184.83244"
+       y="25.878048"
+       dy="0 -10.969994"
+       id="tspan3595-2-1">e-</tspan></text>
+  <path
+     d="m 297.16207,25.04555 c -0.6769,202.73358 10e-6,204.7643 10e-6,204.7643 7.92845,91.61639 31.63093,175.94293 86.30561,235.22511"
+     id="path3537"
+     style="fill:none;stroke:#00FF00;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+  <path
+     d="m 208.5061,24.368642 c 0.6769,202.733578 -1e-5,204.764298 -1e-5,204.764298 -7.92845,91.61639 -31.63093,175.94293 -86.30561,235.22511"
+     id="path3537-5"
+     style="fill:none;stroke:#0000FF;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />FF
+  <path
+     d="m 249.08289,25.722456 c -0.6769,202.733584 1e-5,204.764304 1e-5,204.764304 7.92845,91.61639 11.32373,318.09335 65.99841,377.37553"
+     id="path3537-8"
+     style="fill:none;stroke:#FF0000;stroke-width:4px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />       
   </g>
   <g
      id="Tracker"
@@ -1762,27 +1806,27 @@
     <path
        d="m 99.109376,60.406251 0,-2.5 -10.000002,0 -10,0 0,5 10,0 10.000002,0 z"
        id="path5462-2"
-       style="fill:none;stroke:#000000" />
+/>
     <path
        d="m 78.094572,60.398438 0,-2.489104 -10.486288,0 -10.486289,0 0,4.978208 10.486289,0 10.486288,0 z"
        id="path5462-2-0"
-       style="fill:none;stroke:#000000;stroke-width:1.02179182" />
+ />
     <path
        d="m 78.113202,65.897767 0,-2 -21,0 0,2 0,2 21,0 z"
        id="path5420-3"
-       style="fill:none;stroke:#000000" />
+/>
     <path
        d="m 99.113202,65.897767 0,-2 -20,0 0,2 0,2 20,0 z"
        id="path5418-6"
-       style="fill:none;stroke:#000000" />
+/>
     <path
        d="m 338.125,60.375002 0,-2.5 -20,0 0,5 20,0 z"
        id="path5374-8"
-       style="fill:none;stroke:#000000" />
+/>
     <path
        d="m 160.11655,60.354634 -0.89493,-2.455806 -20.14363,0.03315 0,5 22.14342,0.209922 z"
        id="path5378-6"
-       style="fill:none;stroke:#000000" />
+/>
   </g>
   
   
