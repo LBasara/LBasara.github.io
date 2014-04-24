@@ -176,7 +176,12 @@ stroke-width: 3;
 shape-rendering: crispEdges;
 }
 
-.axis text .impress-on-temp1{
+.axis text {
+font-family: 'PT Serif', georgia, serif;
+font-size: 30px;
+}
+
+.impress-on-temp1 .axis text{
 font-family: 'PT Serif', georgia, serif;
 font-size: 30px;
 }
