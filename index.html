@@ -62,54 +62,56 @@
 
 
 
-    <div id="detector" class="step" data-x="3700" data-y="100" data-z="10" data-scale="11"> 
-			<img src="AMS02.svg" class="svg">
-			<script>
-	document.addEventListener("impress:substepactive", function(e) {
-		if (e.srcElement.classList.contains("echelle")) {
-		    e.srcElement.classList.add("desech");
-		    e.srcElement.classList.remove("echelle");
-		} else
-		if (e.srcElement.classList.contains("desech")) {
-		    e.srcElement.classList.add("echelle");
-		    e.srcElement.classList.remove("desech");
-		}
-	});
+<div id="detector" class="step" data-x="3700" data-y="100" data-z="10" data-scale="11"> 
+	<img src="AMS02.svg" class="svg">
+	<script>
+		document.addEventListener("impress:substepactive", function(e) {
+			if (e.srcElement.classList.contains("echelle")) {
+				e.srcElement.classList.add("desech");
+				e.srcElement.classList.remove("echelle");
+			} else
+			if (e.srcElement.classList.contains("desech")) {
+				e.srcElement.classList.add("echelle");
+				e.srcElement.classList.remove("desech");
+			}
+		});
+	
 </script>
     </div>
+    
+    
+
 
 <script src="d3/d3.js"></script>
 <script src="d3/temp.js"></script>
 	
-	<div id="temp1" class="step temp" data-x="1000" data-y="0" data-z="400" data-scale="1">
+	<div id="temp1" class="step temp" data-x="2800" data-y="3000" data-z="400" data-scale="0.8">
 		<script>
-			document.getElementById('temp1').addEventListener(
-				'impress:stepenter', 	
-				temperature());
-				</script>
+			temperature();
+		</script>
 	</div>
 
 
 
-<div id="slide7"  class="step" data-x="0"	data-y="500" data-z="400"><img src = "Presentation/img7.png"></div>
-<div id="slide8"  class="step" data-x="1000"	data-y="500" data-z="400"><img src = "Presentation/img8.png"></div>
-<div id="slide9"  class="step" data-x="2000"	data-y="500" data-z="400"><img src = "Presentation/img9.png"></div>
-<div id="slide10" class="step" data-x="3000"	data-y="500" data-z="400"><img src = "Presentation/img10.png"></div>
-<div id="slide11" class="step" data-x="4000"	data-y="500" data-z="400"><img src = "Presentation/img11.png"></div>
-<div id="slide12" class="step" data-x="5000"	data-y="500" data-z="400"><img src = "Presentation/img12.png"></div>
-<div id="slide13" class="step" data-x="6000"	data-y="500" data-z="400"><img src = "Presentation/img13.png"></div>
-<div id="slide14" class="step" data-x="7000"	data-y="500" data-z="400"><img src = "Presentation/img14.png"></div>
-<div id="slide15" class="step" data-x="8000"	data-y="500" data-z="400"><img src = "Presentation/img15.png"></div>
-<div id="slide16" class="step" data-x="9000"	data-y="500" data-z="400"><img src = "Presentation/img16.png"></div>
-<div id="BeBlo"   class="step" data-x="10000"	data-y="500" data-z="400" data-rotate="90"><img src = "Presentation/img17.png"></div>
+<div id="slide7"  class="step" data-x="4000"	data-y="2800" data-z="400"><img src = "Presentation/img7.png"></div>
+<div id="slide8"  class="step" data-x="5000"	data-y="2800" data-z="400"><img src = "Presentation/img8.png"></div>
+<div id="slide9"  class="step" data-x="6000"	data-y="2800" data-z="400"><img src = "Presentation/img9.png"></div>
+<div id="slide10" class="step" data-x="7000"	data-y="2800" data-z="400"><img src = "Presentation/img10.png"></div>
+<div id="slide11" class="step" data-x="8000"	data-y="2800" data-z="400"><img src = "Presentation/img11.png"></div>
+<div id="slide12" class="step" data-x="9000"data-y="2800" data-z="400"><img src = "Presentation/img12.png"></div>
+<div id="slide13" class="step" data-x="9000"data-y="1700" data-z="400"><img src = "Presentation/img13.png"></div>
+<div id="slide14" class="step" data-x="8000"	data-y="1700" data-z="400"><img src = "Presentation/img14.png"></div>
+<div id="slide15" class="step" data-x="7000"	data-y="1700" data-z="400"><img src 	= "Presentation/img15.png"></div>
+<div id="slide16" class="step" data-x="6000"	data-y="1700" data-z="400"><img src = "Presentation/img16.png"></div>
+<div id="BeBlo"   class="step" data-x="5000"data-y="1700" data-z="400" ><img src = "Presentation/img17.png"></div>
 
-<div id="slide18" class="step" data-x="10350"	data-y="200" data-z="400" data-scale="0.8"><img src = "Presentation/img18.png"></div>
+<div id="slide18" class="step" data-x="4680"	data-y="1520" data-z="400" data-scale="0.52" data-rotate="-90"><img height=500 width=500 src = "Presentation/BeBl2.png"></div>
 
-<div id="slide19" class="step" data-x="11350" 	data-y="200" data-z= "1000" data-scale="0.8"><img src = "Presentation/img19.png"></div>
-<div id="slide20" class="step" data-x="12350" 	data-y="200" data-z="400" data-scale="0.8"><img src = "Presentation/img20.png"></div>
+<div id="slide19" class="step" data-x="4680" 	data-y="1020" data-z= "600" data-scale="0.4"  data-rotate="-90"><img src = "Presentation/img19.png"></div>
+<div id="slide20" class="step" data-x="4680" 	data-y="520" data-z="600" data-scale="0.4"  data-rotate="-90"><img src = "Presentation/img20.png"></div>
 
 
-<div id="ov2" class= "step" data-x="0" data-y="0" data-z="100"  data-scale="20"></div>
+<div id="ov2" class= "step overview" data-x="0" data-y="0" data-z="100"  data-scale="20"></div>
 
 <div id="slide22" class="step" data-x="-9000" 	 data-y="2000" data-z="400"><img src = "Presentation/img22.png"></div>
 <div id="slide23" class="step" data-x="-7500" 	 data-y="2000" data-z="400"><img src = "Presentation/img23.png"></div>
@@ -121,7 +123,7 @@
 <div id="slide29" class="step" data-x="-7500"	 data-y="6000" data-z="400"><img src = "Presentation/img29.png"></div>
 <div id="slide30" class="step" data-x="-6000"	 data-y="6000" data-z="400"><img src = "Presentation/img30.png"></div>
                        
-<div id="ov3" class= "step" data-x="0" data-y="0" data-z="100"  data-scale="20"></div>                
+<div id="ov3" class= "step overview" data-x="0" data-y="0" data-z="100"  data-scale="20"></div>                
 
 <div id="slide32" class="step" data-x="0000" 	data-y="5000" data-z="400"><img src = "Presentation/img32.png"></div>
 <div id="slide33" class="step" data-x="1000" 	data-y="5000" data-z="400"><img src = "Presentation/img33.png"></div>

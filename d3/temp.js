@@ -1,5 +1,5 @@
 
-	function temperature() {
+function temperature() {
 
 
 		var margin = {top: 50, right: 50, bottom: 120, left: 150},

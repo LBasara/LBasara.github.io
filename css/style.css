@@ -114,6 +114,8 @@ body {
 .step.future { opacity: 0.1;}
 
 
+#BeBlo .impress-on-slide18 {opacity: 1}
+
 /*
     These 'slide' step styles were heavily inspired by HTML5 Slides:
     http://html5slides.googlecode.com/svn/trunk/styles.css
@@ -146,7 +148,18 @@ body {
 
 
 
-#overview { display: none }
+
+
+/*
+    We also make other steps visible and give them a pointer cursor using the
+    `impress-on-` class.
+*/
+.impress-on-overview .step {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.overview { display: none }
 
 
 .cgraph path {
@@ -163,7 +176,7 @@ stroke-width: 3;
 shape-rendering: crispEdges;
 }
 
-.axis text {
+.axis text .impress-on-temp1{
 font-family: 'PT Serif', georgia, serif;
 font-size: 30px;
 }
@@ -210,12 +223,24 @@ svg .substep.previous {
 }
 
 
+	
 
-svg {text-shadow: none}
-svg g.downit {-webkit-transform: translateY(0px); -webkit-transition: -webkit-transform 1s}
-svg g.down {-webkit-transform: translateY(180px); -webkit-transition: -webkit-transform 1s}
-svg g {-webkit-transition: -webkit-transform 1s}
+svg {text-shadow: none;}
 
-svg g.echelle {-webkit-transform: scale(1, 0.01); -webkit-transition: -webkit-transform 0.3s}
-svg g.desech {-webkit-transform: scale(1, 1); -webkit-transition: -webkit-transform 0.3s}
+
+svg g.echelle {
+	-webkit-transform: scale(1, 0.01);
+	-webkit-transition: -webkit-transform 0.3s;
+	-moz-transform: scale(1, 0.01);
+	-moz-transition: -webkit-transform 0.3s;	 
+	}
+	
+	
+svg g.desech {
+	-webkit-transform: scale(1, 1);
+	-webkit-transition: -webkit-transform 0.3s;
+	-moz-transform: scale(1, 1);
+	-moz-transition: -webkit-transform 0.3s;
+
+	}
 
