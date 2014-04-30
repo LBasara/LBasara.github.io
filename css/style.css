@@ -214,7 +214,10 @@ svg .substep.previous {
 
 	
 
-svg {text-shadow: none;}
+svg {
+	text-shadow: none;
+	 -webkit-transform: scale(1.1);
+	}
 
 
 svg g.echelle {
