@@ -139,7 +139,7 @@ body {
     `impress-on-` class.
 */
 .impress-on-overview .step {
-/*    opacity: 1;*/
+    opacity: 1;
     cursor: pointer;
 }
 
