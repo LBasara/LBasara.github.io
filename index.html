@@ -39,6 +39,7 @@
 			<div class="part" style="left:420px;top:170px">1. The AMS-02 experiment</div>
 			<div class="part" style="left:60px;top:400px">2. Electron / proton <br /> discrimination</div>
 			<div class="part" style="left:500px;top:600px">3. Positron ratio</div>
+			<div class="part" style="left:350px;bottom:10px">L. Basara</div>
 			
     </div>
 
@@ -52,7 +53,7 @@
 <div id="ov1b" class= "step" data-x="0" data-y="0" data-z="100"  data-scale="20"></div>
 
 <script>
-	document.addEventListener("impress:stepactive", function(e) {
+	document.addEventListener("impress-on-ov1b", function(e) {
 		if (e.srcElement.classList.contains("desech")) {
 		    e.srcElement.classList.add("echelle");
 		    e.srcElement.classList.remove("desech");
@@ -117,6 +118,9 @@
 <div id="slide25" class="step" data-x="4750" 	data-y="-500" data-z="600" data-scale="0.3"  data-rotate="-30"><img src = "Presentation/img25.png"></div>
 
 
+
+
+
 <div id="ov2" class= "step overview" data-x="0" data-y="0" data-z="100"  data-scale="20"></div>
 
 
@@ -132,7 +136,7 @@
 <div id="slide34" class="step" data-x="-7000"	 data-y="6000" data-z="600" data-scale="1.5"><img src = "Presentation/img34.png"></div>
 <div id="slide35" class="step" data-x="-5000" 	data-y="6000" data-z="600"  data-scale="1.5" ><img src = "Presentation/img35.png"></div>
 
-<div id="slide36" class="step" data-x="-2000" 	data-y="4500" data-z="800"  data-scale="2" ><img src = "Presentation/img36.png"></div>
+<div id="slide36" class="step" data-x="-2500" 	data-y="4000" data-z="800"  data-scale="2" ><img src = "Presentation/img36.png"></div>
                        
 <div id="ov3" class= "step overview" data-x="0" data-y="0" data-z="100"  data-scale="20"></div>                
 
@@ -153,10 +157,18 @@
 <div id="slide48" class="step" data-x="2500" 	data-y="7000" data-z="800" data-scale="1.1"><img src = "Presentation/img48.png"></div>
 <div id="slide49" class="step" data-x="1000" 	data-y="7000" data-z="800" data-scale="1.1"><img src = "Presentation/img49.png"></div>
 
+<div id="ratio" class="step" data-x="000" 	data-y="7000" data-z="800" data-scale="1">
+	<script src="d3/ratio.js"></script>
+</div>
+
+<div id="temp" class="step" data-x="000" 	data-y="7000" data-z="800" data-scale="1">
+	<script src="d3/temp.js"></script>
+	<script>temperature()</script>
+</div>
 
 <div id="ov4" class= "step overview" data-x="0" data-y="0" data-z="100"  data-scale="20"></div>                
-
 <div id="ov5" class= "step overview" data-x="0" data-y="0" data-z="-400" data-rotate-y="180"  data-scale="20"></div>
+
 
 <div id="slide50" class="step" data-x="6000"	data-y="-4000" data-z="-400" data-rotate-y="180"><img src = "EPS_HEP/HEP-2.png"></div>
 <div id="slide51" class="step" data-x="4000"	data-y="-4000" data-z="-400" data-rotate-y="180"><img src = "EPS_HEP/HEP-20.png"></div>

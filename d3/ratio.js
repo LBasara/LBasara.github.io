@@ -1,7 +1,7 @@
 
 		var margin = {top: 20, right: 20, bottom: 30, left: 50},
-			width = 960 - margin.left - margin.right,
-			height = 500 - margin.top - margin.bottom;
+			width = 1000 - margin.left - margin.right,
+			height = 700 - margin.top - margin.bottom;
 
 		var x = d3.scale.log()
 			.range([1, width]);
@@ -30,7 +30,7 @@
 
 			
 
-		var svg = d3.select("#graph").append("svg")
+		var svg = d3.select(".ratio").append("svg")
 			.attr("width", width + margin.left + margin.right)
 			.attr("height", height + margin.top + margin.bottom)
 		  .append("g")
